@@ -1,0 +1,2 @@
+# derelict
+Avoid DeReLiCT code!
