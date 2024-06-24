@@ -176,6 +176,15 @@ with tab1:
 
 with tab2:
     st.header("Repository: use one!")
+    # https://survey.stackoverflow.co/2022/#section-version-control-version-control-systems
+    vc_tools = {
+        "git": 93.87,
+        "SVN": 5.18,
+        "None": 4.31,
+        "Mercurial" : 1.13,
+    }
+    df_vc_tools = pd.DataFrame.from_dict(vc_tools, orient='index', columns=["Percentage"]).sort_values("Percentage").reset_index()
+    
     st.write("A repository with version control is a folder that contains all of your code and its associated documentation",
              "(including the metadata with all your dependencies as discussed in the previous step!),",
              "that is publicly shared and has some form of change tracking that allows you to roll back to previous versions of the code.")
@@ -198,7 +207,29 @@ with tab2:
              "you can cite the specific version of your code you used in a project.")
     st.header("What version control system should I use?")
     st.write("Again, the [FAIR software](https://fair-software.nl/recommendations/repository) website lays out some of the options and guides you towards",
-             "using `git` as your version control system.")
+             "using `git` as your version control system.",
+             "This is a very popular and well-supported version control system, used by 93 % of responders as their",
+             "main version control system in the 2022 [StackOverflow developers survey](https://survey.stackoverflow.co/2022/#section-version-control-version-control-systems).")
+    st.altair_chart(
+        alt.Chart(df_vc_tools).mark_bar(
+            size=40,
+            cornerRadiusBottomRight=3,
+            cornerRadiusTopRight=3
+            ).encode(
+        y=alt.Y('index').sort('-x'),
+        x='Percentage',
+        color=alt.Color("Percentage", legend=None).scale(scheme="bluepurple")).properties(
+            height=alt.Step(50),
+            title="What version control system do you use?").configure_axis(
+        labelFontSize=16,
+        titleFontSize=16
+    ).configure_axisY(labelAlign="right", labelLimit=300, title=None).configure_title(
+        fontSize=16, color="gray"),
+        use_container_width=True,
+        
+    )
+    st.write("Responders could only select one option.",
+             "*Data from StackOverflow [developers survey 2022](https://survey.stackoverflow.co/2022/#section-version-control-version-control-systems). Copyright © StackOverflow 2022.*")
     st.write("The source code for this website is available in a [public GitHub repository](https://github.com/murphyqm/derelict), using the `git` version control system.")
 
 with tab3:
