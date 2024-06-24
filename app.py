@@ -41,14 +41,14 @@ st.markdown("""
 
 st.write(font_css, unsafe_allow_html=True)
 
-tablist = ["Why?","**De**", "**Re**", "**Li**", "**C**", "**T**"]
+tablist = ["\u2001  Why?  \u2001","\u2001  **De**  \u2001", "\u2001 **Re** \u2001", "\u2001 **Li** \u2001", "\u2001 **C** \u2001", "\u2001 **T** \u2001"]
 
-whitespace = 9
+# whitespace = 7
 # ## Fills and centers each tab label with em-spaces
 # tabs = st.tabs([st.center(whitespace,"\u2001") for s in listTabs])
 
-# tab0, tab1, tab2, tab3, tab4, tab5 = st.tabs(tablist)
-tab0, tab1, tab2, tab3, tab4, tab5 = st.tabs([s.center(whitespace,"\u2001") for s in tablist])
+tab0, tab1, tab2, tab3, tab4, tab5 = st.tabs(tablist)
+# tab0, tab1, tab2, tab3, tab4, tab5 = st.tabs([s.center(whitespace,"\u2001") for s in tablist])
 
 with tab0:
     st.write("If you have written a piece of code that has contributed to the development of results that you plan on publishing as a research article,",
