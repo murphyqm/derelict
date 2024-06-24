@@ -41,13 +41,13 @@ st.markdown("""
 
 st.write(font_css, unsafe_allow_html=True)
 
-tablist = ["\u2001  Why?  \u2001","\u2001  **De**  \u2001", "\u2001 **Re** \u2001", "\u2001 **Li** \u2001", "\u2001 **C** \u2001", "\u2001 **T** \u2001"]
+tablist = ["\u2001  Why?  \u2001","\u2001  **De**  \u2001", "\u2001 **Re** \u2001", "\u2001 **Li** \u2001", "\u2001 **C** \u2001", "\u2001 **T** \u2001", "\u2001 Go further \u2001"]
 
 # whitespace = 7
 # ## Fills and centers each tab label with em-spaces
 # tabs = st.tabs([st.center(whitespace,"\u2001") for s in listTabs])
 
-tab0, tab1, tab2, tab3, tab4, tab5 = st.tabs(tablist)
+tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(tablist)
 # tab0, tab1, tab2, tab3, tab4, tab5 = st.tabs([s.center(whitespace,"\u2001") for s in tablist])
 
 with tab0:
@@ -279,3 +279,17 @@ with tab5:
              "It also makes it much easier to review any changes or contributions to the code suggested by collaborators.")
     st.write("Using your version control system, you can ensure that only code that passes your test suite is merged with [the main or production branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches),",
              "so users and collaborators never download a buggy new update.")
+
+with tab6:
+    st.write("Of course, this is only the beginning. The steps shown here prevent",
+             "your code falling to pieces, but a little bit more work is required",
+             "to keep things running smoothly and optimally.",
+             "Sometimes, for a small piece of scientific code with limited applicability,",
+             "these steps alone might be enough and further software engineering work",
+             "might not be the best use of your time. In other cases, your",
+             "research code might have the potential to be very useful to a wider audience",
+             "and you want to ensure that researchers and users of the code get the best experience",
+             "possible. In that case, you need to learn more about research software engineering.")
+    st.write("If you are interested in learning more, I recommend [this Turing Institute training in Python](https://alan-turing-institute.github.io/rse-course/html/index.html)",
+             "on research software engineering.")
+    st.write("This page will be updated with the current most relevant or useful courses.")
