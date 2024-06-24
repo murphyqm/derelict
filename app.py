@@ -4,6 +4,16 @@ import numpy as np
 import altair as alt
 import matplotlib
 
+st.set_page_config(layout="wide", page_title="DeReLiCT Code")
+
+hide_default_format = """
+       <style>
+       #MainMenu {visibility: hidden; }
+       footer {visibility: hidden;}
+       </style>
+       """
+st.markdown(hide_default_format, unsafe_allow_html=True)
+
 st.title('How to avoid DeReLiCT Code')
 
 st.write("Basic steps to help avoid total code collapse.")
