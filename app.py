@@ -51,7 +51,7 @@ st.markdown("""
 
 st.write(font_css, unsafe_allow_html=True)
 
-tablist = ["\u2001  Why?  \u2001","\u2001  **De**  \u2001", "\u2001 **Re** \u2001", "\u2001 **Li** \u2001", "\u2001 **C** \u2001", "\u2001 **T** \u2001", "\u2001 Go further \u2001"]
+tablist = ["\u2001  Why?  \u2001","\u2001  **De**  \u2001", "\u2001 **Re** \u2001", "\u2001 **Li** \u2001", "\u2001 **C** \u2001", "\u2001 **T** \u2001", "\u2001 More! \u2001"]
 
 # whitespace = 7
 # ## Fills and centers each tab label with em-spaces
