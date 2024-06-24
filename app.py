@@ -8,7 +8,24 @@ st.title('How to avoid DeReLiCT Code')
 
 st.write("Basic steps to help avoid total code collapse.")
 
-tab0, tab1, tab2, tab3, tab4, tab5 = st.tabs(["Why?","**De**", "**Re**", "**Li**", "**C**", "**T**"])
+font_css = """
+<style>
+button[data-baseweb="tab"] > div[data-testid="stMarkdownContainer"] > p {
+  font-size: 24px;
+}
+</style>
+"""
+
+st.write(font_css, unsafe_allow_html=True)
+
+tablist = ["Why?","**De**", "**Re**", "**Li**", "**C**", "**T**"]
+
+whitespace = 9
+# ## Fills and centers each tab label with em-spaces
+# tabs = st.tabs([st.center(whitespace,"\u2001") for s in listTabs])
+
+# tab0, tab1, tab2, tab3, tab4, tab5 = st.tabs(tablist)
+tab0, tab1, tab2, tab3, tab4, tab5 = st.tabs([s.center(whitespace,"\u2001") for s in tablist])
 
 with tab0:
     st.write("If you have written a piece of code that has contributed to the development of results that you plan on publishing as a research article,",
@@ -84,10 +101,10 @@ with tab1:
         color=alt.Color("Percentage", legend=None).scale(scheme="bluepurple")).properties(
             height=alt.Step(50),
             title="What format is your application dependency information stored in?").configure_axis(
-        labelFontSize=20,
-        titleFontSize=20
+        labelFontSize=16,
+        titleFontSize=16
     ).configure_axisY(labelAlign="right", labelLimit=300, title=None).configure_title(
-        fontSize=20, color="gray"),
+        fontSize=16, color="gray"),
         use_container_width=True,
         
     )
