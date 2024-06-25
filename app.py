@@ -174,7 +174,8 @@ with tab1:
              "To avoid security issues creeping in, the application should be updated and tested regularly, and the pinned",
              "requirements updated appropriately.")
     st.divider()
-    st.write("The Alan Turing Institute discusses dependency pinning in their [software projects module](https://alan-turing-institute.github.io/rse-course/html/module06_software_projects/06_02_managing_dependencies.html#how-should-you-pin-dependency-versions):")
+    st.write("The Alan Turing Institute discusses dependency pinning in their [software projects module](https://alan-turing-institute.github.io/rse-course/html/module06_software_projects/06_02_managing_dependencies.html#how-should-you-pin-dependency-versions)",
+             "and summarises the issue quite nicely:")
     markdown_snippet = """
     > There are potential caveats and pitfalls with all approaches. At the extremes you have:
     >
