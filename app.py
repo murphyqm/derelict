@@ -173,7 +173,19 @@ with tab1:
              "such as a webapp should include strictly pinned dependencies to ensure the application runs as expected.",
              "To avoid security issues creeping in, the application should be updated and tested regularly, and the pinned",
              "requirements updated appropriately.")
-    
+    st.divider()
+    st.write("The Alan Turing Institute discusses dependency pinning in their [software projects module](https://alan-turing-institute.github.io/rse-course/html/module06_software_projects/06_02_managing_dependencies.html#how-should-you-pin-dependency-versions):")
+    markdown_snippet = """
+    > There are potential caveats and pitfalls with all approaches. At the extremes you have:
+    >
+    > - Not specifying a version:
+    >    - Dependencies are likely to introduce breaking changes in the future that will cause your code to fail or give different results.
+    >- Pinning an exact version:
+    >    - Specific versions may not be available on all platforms. You (or new users of your code) won’t get bug and security fixes in new versions.
+    >
+    > For research code, to ensure you get exactly the same results from repeating an analysis on another system (or a fresh installation on the same system) pinning versions is often the best approach.
+    """
+    st.write(markdown_snippet)
     st.header("Going further")
     st.write("Another way to avoid dependency issues and ensure reproducible coding environments is to implement containerisation.",
              "You can create a lightweight **container** which includes a specific operating system and",
