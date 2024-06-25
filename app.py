@@ -16,7 +16,9 @@ st.markdown(hide_default_format, unsafe_allow_html=True)
 
 st.title('How to avoid DeReLiCT Code')
 
-st.write("Basic steps to help avoid total code collapse.")
+st.write("Basic steps to help avoid total code collapse. Add some scaffolding to your scientific code with the",
+         "**DeReLiCT** acronym: **De**pendencies, **Re**pository, **Li**cense, **C**itation, **T**esting.",
+         "Click through the tabs below to find out more.")
 
 font_css = """
 <style>
