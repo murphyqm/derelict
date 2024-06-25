@@ -343,7 +343,7 @@ with tab5:
     st.write(
         "Of course, you can take things a step further and start to work using a",
         "[Test driven development](https://en.wikipedia.org/wiki/Test-driven_development) workflow,",
-        "and develop an [authomated test suite](https://docs.github.com/en/actions/automating-builds-and-tests) in GitHub to run when any change is made to the code."
+        "and develop an [automated test suite](https://docs.github.com/en/actions/automating-builds-and-tests) in GitHub to run when any change is made to the code."
     )
     st.write("Having robust tests in place, alongside a version control system, means that you can be sure that you won't unknowingly incorporate and",
              "propagate an error in your code when you are extending and updating your software.",
