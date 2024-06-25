@@ -81,7 +81,9 @@ with tab1:
     st.write("Regardless of the language you are using to write your scientific research code, there will be different versions of the language itself,",
              "and different versions of the plug-ins and libraries you use.",
              "If you fail to record what version of which libraries you use, you may run into compatibility errors when certain libraries are updated.",
-             "Even worse, the behaviour of a library may change and your code can produce *different* results, without any obvious errors.")
+             "Even worse, the behaviour of a library may change and your code can produce *different* results, without any obvious errors.",
+             "Please scroll down to [Pinning specific versions of libraries](#pinning-specific-versions-of-libraries) to see whether",
+             "you should include general dependencies without minor versions, or specific pinned library versions in your project.")
     st.write("[NYU Libraries](https://guides.nyu.edu/software-reproducibility/dependencies) provides some straightforward guidance to help you begin, summarised in brief below.")
     st.subheader("1. Use dependencies wisely and sparingly")
     st.write("Don't import dependencies you don't actually use, and try to stick to libraries that have robust and stable releases.")
@@ -143,6 +145,32 @@ with tab1:
     )
     st.write("Responders could select more than one option. The total may be greater than 100% for this multiple-answer question.",
              "*Data from Python developers survey 2022. Copyright © JetBrains s.r.o. 2023.*")
+    
+    st.header("Pinning specific versions of libraries")
+    st.write("You may see varying and disagreeing information about pinning specific library dependencies.",
+             "This is often because the best practice varies on the context, with pinned and loose dependencies having their own",
+             "benefits and drawbacks; however, you will also potentially find disagreeing guidance for the same context.",
+             "You should weigh up the situation which best meets your needs and use-case.",
+             "Note that this guidance is specifically",
+             "for Python projects; please search your specific language for details.")
+    st.write("The [Python Packaging User Guide](https://packaging.python.org/en/latest/specifications/dependency-specifiers/#dependency-specifiers)",
+             "gives an in-depth description of how to format dependency files.",
+             "The top answer on this old but still useful [Stackoverflow forum post](https://stackoverflow.com/questions/28509481/should-i-pin-my-python-dependencies-versions)",
+             "lays out some of the different view points. These positions are summarised below with some links.")
+    st.subheader("1. Leaving dependencies loose for Python packages")
+    st.write("When building a Python package for distribution on PyPI, it is often recommended to keep dependencies loose",
+             "to prevent complicated dependency conflicts (for example, if another package is being installed at the same",
+             "time that also includes specific pinned versions of the same libraries).",
+             "This [Python Dependency Study](https://docs.google.com/document/u/0/d/1x_VrNtXCup75qA3glDd2fQOB2TakldwjKZ6pXaAjAfg/mobilebasic?pli=1)",
+             "notes that 'Developers of applications should pin dependencies if they believe that they will be able/willing to release new versions whenever important updates to dependencies arise';",
+             "otherwise, dependencies should be left more flexible and testing should confirm that the code still performs as expected.")
+    st.subheader("2. Pinning specific versions of dependencies for finished applications")
+    st.write("Less controversial and divided is the matter of pinning dependencies for a finished application (see this [blog post](https://nvie.com/posts/pin-your-packages/)).",
+             "In contrast to a package that will be installed alongside other libraries as part of a development environment, where",
+             "changing and updating versions of other parallel libraries is expected, a finished application",
+             "such as a webapp should include strictly pinned dependencies to ensure the application runs as expected.",
+             "To avoid security issues creeping in, the application should be updated and tested regularly, and the pinned",
+             "requirements updated appropriately.")
     
     st.header("Going further")
     st.write("Another way to avoid dependency issues and ensure reproducible coding environments is to implement containerisation.",
