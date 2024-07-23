@@ -73,10 +73,23 @@ with tab0:
              "and nothing works anymore. You ideally want to be able to return in the fututre and reproduce the results you initially",
              "generated months ago.")
     st.subheader("These are the easy, bare-minimum steps you should take to ensure your scientific code and subsequent results are robust and reproducible.")
+    st.write("Each section includes three stages of work or effort you can put in,",
+             "depending how much time you have to dedicate to this aspect of your project.")
 
 with tab1:
     st.header("Dependencies: record them!")
-    
+    with st.popover("TL;DR - click here"):
+        st.subheader("Three levels of effort")
+        st.write("1. Export your working environment (that you've used to produce scientific results) as-is into a pip `requirements.txt` or conda `env.yml`")
+        st.code("conda env export --no-builds > env.yml  # if using conda")
+        st.code("python3 -m pip freeze > req.txt  # if using pip")
+        st.write("2. Export your working environment as-is, but also export a version without pinned versions to allow users to reproduce a similar environment on other machines (without battling dependency hell).")
+        st.code('conda env export --from-history | grep -v "^prefix: " > new-environment.ym  # if no pip in env')
+        st.write("See [here](https://package-your-python.streamlit.app/#example-workflow-using-conda) to export pip alongside conda.")
+        st.write("3. Use a pip `requirements.txt` or conda `env.yml` file to",
+                 "record specific versions of packages you used for scientific analysis, but package your novel code into",
+                 "[it's own package with a `pyproject.toml` file](https://package-your-python.streamlit.app/) so that it can be installed",
+                 "and included in your conda environment or pip env.")
     st.write("You might hear researchers or code users complain about [dependency hell](https://en.wikipedia.org/wiki/Dependency_hell).",
              "While juggling dependencies occurs at every level of computing, we are going to focus specifically on your scientific code,",
              "and how to avoid future errors and issues with reproducibility by recording your dependencies.")
@@ -219,6 +232,11 @@ with tab1:
 
 with tab2:
     st.header("Repository: use one!")
+    with st.popover("TL;DR - click here"):
+        st.subheader("Three levels of effort")
+        st.write("1. Dump your code **as is** into a public git repository")
+        st.write("2. Work on secondary branches and only merge into `main` when work passes tests")
+        st.write("3. Build an automated testing workflow that runs tests everytime you create a pull-request against main")
     # https://survey.stackoverflow.co/2022/#section-version-control-version-control-systems
     vc_tools = {
         "git": 93.87,
@@ -277,7 +295,10 @@ with tab2:
 
 with tab3:
     st.header("License: add one to your repository!")
-    st.write("By default, your software is copyrighted, which means that legally, others cannot isntall and run your code.",
+    with st.popover("TL;DR - click here"):
+        st.subheader("Levels of effort")
+        st.write("Unlike the other sections, there isn't really a way to half-do this: either your codebase contains a license or it doesn't! ")
+    st.write("By default, your software is copyrighted, which means that legally, others cannot install and run your code.",
              "You want people to use your code! You also probably want to be recognised as the author of it, want to ensure",
              "you are not liable if it breaks and produces bad results for someone, and might have different requirements",
              "from your funder, research institute, or employer on what licenses you can use.")
@@ -320,6 +341,11 @@ with tab3:
 
 with tab4:
     st.header("Citation: make it easy!")
+    with st.popover("TL;DR - click here"):
+        st.subheader("Three levels of effort")
+        st.write("1. Cite a [specific commit ID](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/about-commits#about-commits) when you use your code, and add your name and details to the `README.md` so that others can cite you.")
+        st.write("2. Create a [versioned release on GitHub](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release) and cite the version when you use your code; point users to the releases in your `README.md`.")
+        st.write("3. Link your [versioned release to zenodo](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content) to get a DOI for your release, and add a `CITATION.ctf` file (see discussion below).")
     st.write("Once you have published your code in a repository, and have included a license that allows re-use, you will want to",
              "make it as easy as possible for people to correctly attribute your work to you.",
              "Citing software can be a bit less straightforward than for journal articles, so you want to ensure",
@@ -346,6 +372,11 @@ with tab4:
 
 with tab5:
     st.header("Test your code!")
+    with st.popover("TL;DR - click here"):
+        st.subheader("Three levels of effort")
+        st.write("1. Write basic integration tests that check that the output of your code matches an example dataset")
+        st.write("2. Write unit tests that test each small function of your project")
+        st.write("3. Build an automated testing workflow that tests against different Python versions")
     st.write("In the same way you would set up validation and checks on lab analysis of samples via primary and secondary standards,",
              "so too should you test and benchmark your code."
              "Separate from validating numerical models against analytical results, or larger-scale research validation,",
